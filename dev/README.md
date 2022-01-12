@@ -55,6 +55,9 @@ helm install rpc-2 ./charts/besu-node --namespace quorum --values ./values/reade
 # delete rpc-1 and restart and see if it joins
 ```
 
+kubectl -n quorum create configmap besu-node-enodes --from-file=static-nodes.json=/home/jfernandes/static.json -o yaml --dry-run | kubectl replace -f -
+
+
 Optionally deploy the ingress controller like so:
 
 NOTE: Deploying the ingress rules, assumes you are connecting to the `tx-1` node from section 3 above. Please update this as required to suit your requirements
